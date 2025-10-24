@@ -2,13 +2,14 @@ ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
 # Install Smokeping and its dependencies
-RUN apk update \
-    && apk install -y \
+RUN apk update && \
+    apk add --no-cache \
         smokeping \
         fping \
         rrdtool \
         nginx \
-        fcgiwrap
+        fcgiwrap && \
+    rm -rf /var/cache/apk/*
 
 # Create necessary directories and copy addon files
 COPY rootfs/ /
