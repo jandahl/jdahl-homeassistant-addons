@@ -14,6 +14,9 @@ RUN apk update && \
 # Create necessary directories and copy addon files
 COPY rootfs/ /
 
+# Copy run script
+COPY run.sh /run.sh
+
 # Make run script executable
 RUN chmod a+x /run.sh
 
