@@ -1,0 +1,61 @@
+*** General ***
+owner    = Your Name Here
+contact  = your.email@host.bla
+
+*** Database ***
+step     = 300
+pings    = 20
+
+*** Presentation ***
+template = /etc/smokeping/basepage.html
+
++ overview
+width = 600
+height = 50
+range = 10h
+
++ detail
+width = 600
+height = 200
+unison_tolerance = 2
+
+"Last 3 Hours"    , 3h
+"Last 30 Hours"   , 30h
+"Last 10 Days"    , 10d
+"Last 400 Days"   , 400d
+
+*** Probes ***
+
++ FPing
+binary = /usr/sbin/fping
+
+*** Targets ***
+
+probe = FPing
+
+menu = Top
+title = Network Latency Grapher
+remark = Welcome to the Smokeping addon for Home Assistant.
+
++ Internal
+menu = Internal Network
+title = Latency to Internal Devices
+
+++ Gateway
+menu = Gateway
+title = Default Gateway
+host = 192.168.1.1
+
++ External
+menu = External Services
+title = Latency to Internet Services
+
+++ GoogleDNS
+menu = Google DNS
+title = Google DNS Server
+host = 8.8.8.8
+
+++ CloudflareDNS
+menu = Cloudflare DNS
+title = Cloudflare DNS Server
+host = 1.1.1.1

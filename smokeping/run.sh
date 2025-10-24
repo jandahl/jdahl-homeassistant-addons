@@ -10,7 +10,7 @@ mkdir -p "${DATA_DIR}"
 chown -R smokeping:smokeping "${DATA_DIR}"
 
 # 2. Copy default configuration if user config doesn't exist
-for file in config Probes Targets; do
+for file in config; do
     if [ ! -f "${CONFIG_DIR}/${file}" ]; then
         bashio::log.info "No user ${file} found, creating default."
         cp "${DEFAULTS_DIR}/${file}" "${CONFIG_DIR}/${file}"
