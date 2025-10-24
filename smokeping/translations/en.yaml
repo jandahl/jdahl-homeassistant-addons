@@ -1,0 +1,9 @@
+configuration:
+  owner:
+    name: "Owner"
+    description: "The owner of the smokeping instance."
+  contact:
+    name: "Contact"
+    description: "The contact email for the smokeping instance."
+network:
+  80/tcp: "Web interface"

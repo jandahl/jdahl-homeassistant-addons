@@ -3,7 +3,7 @@ name: "Smokeping"
 version: "1.0.0"
 slug: "smokeping"
 description: "Network latency monitoring with Smokeping"
-url: "https://github.com/example/ha-addon-smokeping"
+url: "https://github.com/jandahl/jdahl-homeassistant-addons"
 arch:
   - aarch64
   - amd64
