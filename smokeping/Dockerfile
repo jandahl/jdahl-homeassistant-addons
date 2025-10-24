@@ -8,9 +8,7 @@ RUN apk update \
         fping \
         rrdtool \
         nginx \
-        fcgiwrap \
-        # Add any other required perl modules or utilities here
-    && rm -rf /var/lib/apt/lists/*
+        fcgiwrap
 
 # Create necessary directories and copy addon files
 COPY rootfs/ /
