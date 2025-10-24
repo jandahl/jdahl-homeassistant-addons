@@ -29,6 +29,9 @@ sed -i "s/owner = Your Name Here/owner = ${OWNER}/g" "${CONFIG_DIR}/config"
 sed -i "s/contact = your.email@host.bla/contact = ${CONTACT}/g" "${CONFIG_DIR}/config"
 sed -i "s|datadir = /var/lib/smokeping|datadir = ${DATA_DIR}|g" "${CONFIG_DIR}/config"
 
+# Create nginx log directory
+mkdir -p /var/log/nginx
+
 bashio::log.info "Configuration complete. Starting services..."
 
 # 5. Start services using S6-Overlay
