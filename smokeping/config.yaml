@@ -1,6 +1,6 @@
 # Addon Manifest
 name: "Smokeping"
-version: "1.0.0"
+version: "2.9.0"
 slug: "smokeping"
 description: "Network latency monitoring with Smokeping"
 url: "https://github.com/jandahl/jdahl-homeassistant-addons"
