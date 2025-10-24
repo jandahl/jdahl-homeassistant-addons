@@ -2,8 +2,8 @@ ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
 # Install Smokeping and its dependencies
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
+RUN apk update \
+    && apk install -y \
         smokeping \
         fping \
         rrdtool \
