@@ -1,8 +1,15 @@
 #!/usr/bin/with-contenv bashio
 
+set -x
+
+bashio::log.info "Starting Smokeping addon..."
+
 CONFIG_DIR="/config/smokeping"
 DATA_DIR="/data/smokeping"
 DEFAULTS_DIR="/etc/smokeping/defaults"
+
+bashio::log.info "Listing contents of /etc/smokeping/defaults..."
+ls -la /etc/smokeping/defaults
 
 # 1. Create persistent directories if they don't exist
 mkdir -p "${CONFIG_DIR}"
@@ -17,6 +24,9 @@ for file in config; do
     fi
 done
 
+bashio::log.info "Contents of /config/smokeping/config before modification:"
+cat "${CONFIG_DIR}/config"
+
 # 3. Create symlinks for Smokeping to find its config
 rm -rf /etc/smokeping
 ln -s "${CONFIG_DIR}" /etc/smokeping
@@ -29,8 +39,17 @@ sed -i "s/owner = Your Name Here/owner = ${OWNER}/g" "${CONFIG_DIR}/config"
 sed -i "s/contact = your.email@host.bla/contact = ${CONTACT}/g" "${CONFIG_DIR}/config"
 sed -i "s|datadir = /var/lib/smokeping|datadir = ${DATA_DIR}|g" "${CONFIG_DIR}/config"
 
+bashio::log.info "Contents of /config/smokeping/config after modification:"
+cat "${CONFIG_DIR}/config"
+
 # Create nginx log directory
 mkdir -p /var/log/nginx
+
+bashio::log.info "Checking for binaries..."
+which smokeping
+which nginx
+which fping
+which fcgiwrap
 
 bashio::log.info "Configuration complete. Starting services..."
 
