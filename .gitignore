@@ -208,5 +208,5 @@ __marimo__/
 .DS_Store
 
 # Home Assistant Addon specific
-/smokeping/tmp/
+/smokeping/test/
 *.local
